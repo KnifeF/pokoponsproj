@@ -1,11 +1,10 @@
 package com.example.pokoponsproj;
 
 import LoginManager.LoginManager;
+import com.example.pokoponsproj.beans.Customer;
 import com.example.pokoponsproj.repositories.CouponRepository;
-import facades.AdminFacade;
+import com.example.pokoponsproj.facades.AdminFacade;
 import org.springframework.context.ApplicationContext;
-
-import java.sql.SQLException;
 
 public class Test {
 
@@ -24,6 +23,11 @@ public class Test {
         try {
             // login with administrator
             AdminFacade adminFacade = (AdminFacade) loginManager.login("admin@admin.com", "admin", ClientType.administrator);
+
+            adminFacade.addCustomer(new Customer("Nir", "Shuk", "niros@example.com", "nironir"));
+
+//            System.out.println(adminFacade.getAllCustomers());
+
 
 
             // login with seller

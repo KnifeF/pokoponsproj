@@ -1,4 +1,4 @@
-package facades;
+package com.example.pokoponsproj.facades;
 
 import com.example.pokoponsproj.beans.Coupon;
 import com.example.pokoponsproj.beans.Customer;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @Scope("Prototype")

@@ -1,4 +1,4 @@
-package facades;
+package com.example.pokoponsproj.facades;
 
 import com.example.pokoponsproj.repositories.CouponRepository;
 import com.example.pokoponsproj.repositories.CustomerRepository;

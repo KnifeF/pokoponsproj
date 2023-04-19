@@ -1,8 +1,7 @@
-package facades;
+package com.example.pokoponsproj.facades;
 
 import com.example.pokoponsproj.beans.Coupon;
 import com.example.pokoponsproj.beans.Customer;
-import com.example.pokoponsproj.beans.Seller;
 import com.example.pokoponsproj.beans.Types;
 import com.example.pokoponsproj.repositories.CouponRepository;
 import com.example.pokoponsproj.repositories.CustomerRepository;
@@ -13,8 +12,6 @@ import org.springframework.stereotype.Service;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 @Scope("Prototype")

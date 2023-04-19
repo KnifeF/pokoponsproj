@@ -1,10 +1,10 @@
 package LoginManager;
 
 import com.example.pokoponsproj.ClientType;
-import facades.AdminFacade;
-import facades.ClientFacade;
-import facades.CustomerFacade;
-import facades.SellerFacade;
+import com.example.pokoponsproj.facades.AdminFacade;
+import com.example.pokoponsproj.facades.ClientFacade;
+import com.example.pokoponsproj.facades.CustomerFacade;
+import com.example.pokoponsproj.facades.SellerFacade;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 

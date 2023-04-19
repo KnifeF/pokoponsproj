@@ -1,4 +1,4 @@
-package facades;
+package com.example.pokoponsproj.facades;
 
 import com.example.pokoponsproj.beans.Coupon;
 import com.example.pokoponsproj.beans.Seller;
