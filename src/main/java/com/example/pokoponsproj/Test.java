@@ -26,7 +26,7 @@ public class Test {
 
             adminFacade.addCustomer(new Customer("Nir", "Shuk", "niros@example.com", "nironir"));
 
-//            System.out.println(adminFacade.getAllCustomers());
+            System.out.println(adminFacade.getAllCustomers());
 
 
 

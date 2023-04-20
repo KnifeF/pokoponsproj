@@ -23,8 +23,6 @@ public class Customer {
     @NotNull
     private String password;
 
-    // ask Nir about cascade type and the differences
-//    @ManyToMany(mappedBy = "customers", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @ManyToMany(mappedBy = "customers", fetch = FetchType.EAGER)
     private List<Coupon> coupons;
 
