@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@Scope("Prototype")
+@Scope("prototype")
 public class AdminFacade extends ClientFacade {
     public AdminFacade(CustomerRepository customerRepo, SellerRepository sellerRepo, CouponRepository couponRepo) {
         super(customerRepo, sellerRepo, couponRepo);

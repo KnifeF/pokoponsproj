@@ -1,4 +1,4 @@
-package LoginManager;
+package com.example.pokoponsproj.LoginManager;
 
 import com.example.pokoponsproj.ClientType;
 import com.example.pokoponsproj.facades.AdminFacade;

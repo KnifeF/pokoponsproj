@@ -11,6 +11,8 @@ import java.util.List;
 public class Coupon {
 
     // seller = company_id // pokopon = coupon_id //
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPokopon;
     //    private int idSeller;
     @NotNull

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 @Service
-@Scope("Prototype")
+@Scope("prototype")
 public class CustomerFacade extends ClientFacade {
 
     private int customerId;
@@ -54,6 +54,7 @@ public class CustomerFacade extends ClientFacade {
         coup.setAmount(amount - 1);
         couponRepo.save(coup);
 
+//        this.customerRepo.findById(this.customerId).get().getCoupons().add(coup);
 
         //purchase
         couponRepo.addCouponPurchase(customerId, coup.getIdPokopon());
@@ -80,6 +81,8 @@ public class CustomerFacade extends ClientFacade {
                 }
             }
         }
+
+        //return coupons.stream().filter( c-> c.getIdType().equals(type) ).toList();
 
         return sameTypeCoupons;
     }

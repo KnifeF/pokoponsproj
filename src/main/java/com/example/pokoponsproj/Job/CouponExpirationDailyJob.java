@@ -1,4 +1,4 @@
-package Job;
+package com.example.pokoponsproj.Job;
 
 import com.example.pokoponsproj.beans.Coupon;
 import com.example.pokoponsproj.beans.Customer;

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@Scope("Prototype")
+@Scope("prototype")
 public class SellerFacade extends ClientFacade {
 
     private int sellerId;
