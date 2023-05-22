@@ -59,8 +59,8 @@ public class Test {
 
             //            adminFacade.addSeller(new Seller("Best seller on earth", "thebest@example.com",
             //                    "thebestpasswordintheworld!"));
-            Seller tempSeller = new Seller("second Best seller", "thesecond@example.com",
-                    "passwordpassword");
+            Seller tempSeller = new Seller("second Best seller", "pokoponer@example.com",
+                    "password");
 
             adminFacade.addSeller(tempSeller);
 
@@ -81,7 +81,7 @@ public class Test {
 
             // login with seller
             SellerFacade sellerFacade = (SellerFacade) loginManager.login("pokoponer@example.com", "password", ClientType.seller);
-            // sellerFacade.addCoupon(new Coupon("pika", Types.Electric, 10, 1050.9, "pika.. pika.. chu!!!", Date.valueOf("2023-04-20"), Date.valueOf("2023-04-21"), null, tempSeller));
+            sellerFacade.addCoupon(new Coupon("pika", Types.Electric, 10, 1050.9, "pika.. pika.. chu!!!", Date.valueOf("2023-04-20"), Date.valueOf("2023-04-21"), null, tempSeller));
 
 
 
