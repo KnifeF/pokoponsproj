@@ -1,4 +1,4 @@
-package com.example.pokoponsproj.Job;
+package com.example.pokoponsproj.services.threads;
 
 import com.example.pokoponsproj.beans.Coupon;
 import com.example.pokoponsproj.beans.Customer;
@@ -8,25 +8,33 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
-import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Service to remove expired coupons
+ */
 @Service
 public class CouponExpirationDailyJob {
 
     private CouponRepository couponRepo;
     private CustomerRepository customerRepo;
 
+    /**
+     * CouponExpirationDailyJob constructor
+     * @param couponRepo component for coupon in the DAO layer
+     * @param customerRepo component for customer in the DAO layer
+     */
     public CouponExpirationDailyJob(CouponRepository couponRepo, CustomerRepository customerRepo) {
         this.couponRepo = couponRepo;
         this.customerRepo = customerRepo;
     }
 
-//    private boolean quit = false;
-
-
     // https://www.baeldung.com/spring-scheduled-tasks
     //schedule a task at a fixed interval of time, and with a delay
+
+    /**
+     * delete expired coupons logic
+     */
     @Scheduled(fixedRate = 24 * 60 * 60 * 1000, initialDelay = 20 * 1000)
     public void delExpiredCoupons() {
         Date currDate = new Date(System.currentTimeMillis());

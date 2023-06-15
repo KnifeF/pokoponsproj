@@ -1,15 +1,18 @@
-package com.example.pokoponsproj.LoginManager;
+package com.example.pokoponsproj.services.auth.LoginManager;
 
-import com.example.pokoponsproj.ClientType;
-import com.example.pokoponsproj.facades.AdminFacade;
-import com.example.pokoponsproj.facades.ClientFacade;
-import com.example.pokoponsproj.facades.CustomerFacade;
-import com.example.pokoponsproj.facades.SellerFacade;
+import com.example.pokoponsproj.enums.ClientType;
+import com.example.pokoponsproj.services.facades.AdminFacade;
+import com.example.pokoponsproj.services.facades.ClientFacade;
+import com.example.pokoponsproj.services.facades.CustomerFacade;
+import com.example.pokoponsproj.services.facades.SellerFacade;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
 
+/**
+ * login manager service
+ */
 @Service
 public class LoginManager {
     private ApplicationContext ctx;

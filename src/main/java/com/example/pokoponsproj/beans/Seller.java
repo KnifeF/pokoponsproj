@@ -6,7 +6,10 @@ import java.util.List;
 
 @Entity // for Hibernate mapping
 @Table(name = "sellers")
-public class Seller {
+public class Seller extends Client {
+    /**
+     * Seller obj that represents a table 'sellers' in the db, and each instance corresponds to a row in that table
+     */
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,15 +26,9 @@ public class Seller {
     @OneToMany(mappedBy = "seller", fetch = FetchType.EAGER)
     private List<Coupon> coupons;
 
+    // constructors
     /***** HIBERNATE *****/
     public Seller() {}
-
-//    public Seller(String name, String email, String password, List<Coupon> coupons) {
-//        this.name = name;
-//        this.email = email;
-//        this.password = password;
-//        this.coupons = coupons;
-//    }
 
     public Seller(String name, String email, String password) {
         this.name = name;
@@ -39,6 +36,7 @@ public class Seller {
         this.password = password;
     }
 
+    // relevant getters and setters
     public int getIdSeller() {
         return idSeller;
     }
@@ -75,6 +73,10 @@ public class Seller {
         this.coupons = coupons;
     }
 
+    /**
+     * toString for Seller obj
+     * @return seller relevant details (String)
+     */
     @Override
     public String toString() {
         return "Seller{" +
