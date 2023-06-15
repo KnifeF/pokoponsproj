@@ -1,4 +1,4 @@
-package com.example.pokoponsproj.filters;
+package com.example.pokoponsproj.services.filters;
 
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -13,6 +13,10 @@ import java.io.IOException;
 @Component
 @Order(1)
 public class CorsFilter extends OncePerRequestFilter {
+
+    public CorsFilter() {
+    }
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         response.setHeader("Access-Control-Allow-Origin", "*"); // allow access to all controller paths ("/auth", "/name" ...)

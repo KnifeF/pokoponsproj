@@ -1,13 +1,13 @@
 package com.example.pokoponsproj;
 
-import com.example.pokoponsproj.LoginManager.LoginManager;
+import com.example.pokoponsproj.services.auth.LoginManager.LoginManager;
 import com.example.pokoponsproj.beans.Coupon;
-import com.example.pokoponsproj.beans.Customer;
 import com.example.pokoponsproj.beans.Seller;
-import com.example.pokoponsproj.beans.Types;
-import com.example.pokoponsproj.facades.SellerFacade;
+import com.example.pokoponsproj.enums.Types;
+import com.example.pokoponsproj.enums.ClientType;
+import com.example.pokoponsproj.services.facades.SellerFacade;
 import com.example.pokoponsproj.repositories.CouponRepository;
-import com.example.pokoponsproj.facades.AdminFacade;
+import com.example.pokoponsproj.services.facades.AdminFacade;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
