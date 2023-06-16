@@ -14,10 +14,12 @@ import java.util.List;
  * Service to remove expired coupons
  */
 @Service
-public class CouponExpirationDailyJob {
+public class CouponExpirationDailyJob implements Runnable{
 
     private CouponRepository couponRepo;
     private CustomerRepository customerRepo;
+
+    public boolean running = true;
 
     /**
      * CouponExpirationDailyJob constructor
@@ -35,34 +37,73 @@ public class CouponExpirationDailyJob {
     /**
      * delete expired coupons logic
      */
-    @Scheduled(fixedRate = 24 * 60 * 60 * 1000, initialDelay = 20 * 1000)
-    public void delExpiredCoupons() {
-        Date currDate = new Date(System.currentTimeMillis());
+//    @Scheduled(fixedRate = 24 * 60 * 60 * 1000, initialDelay = 20 * 1000)
+//    public void delExpiredCoupons() {
+//        Date currDate = new Date(System.currentTimeMillis());
+//
+//        List<Coupon> coupons = couponRepo.findAll();
+//        List<Customer> customers = customerRepo.findAll();
+//
+//        for (Coupon coupon: coupons) {
+//            if (coupon.getEndDate().before(currDate)){
+//                for (Customer customer : customers) {
+//                    List<Coupon> customerCoupons = customer.getCoupons();
+//
+//                    // remove elements from the coupons list if they have the id of the expired coupon
+//                    // https://www.techiedelight.com/remove-all-occurrences-element-from-list-java/
+//                    customerCoupons.removeIf(coup -> coup.getIdPokopon() == coupon.getIdPokopon());
+//
+//                    // update customer after deleting his expired coupons from the list
+//                    customerRepo.save(customer);
+//                }
+//
+//                // remove coupon purchase history
+//                couponRepo.deleteCouponPurchaseByCouponId(coupon.getIdPokopon());
+//                // remove the coupon
+//                couponRepo.deleteById(coupon.getIdPokopon());
+//                System.out.println("deleted coupon with id: " + coupon.getIdPokopon());
+//            }
+//
+//        }
+//    }
 
-        List<Coupon> coupons = couponRepo.findAll();
-        List<Customer> customers = customerRepo.findAll();
+    @Override
+    public void run() {
+        while (running){
+            Date currDate = new Date(System.currentTimeMillis());
 
-        for (Coupon coupon: coupons) {
-            if (coupon.getEndDate().before(currDate)){
-                for (Customer customer : customers) {
-                    List<Coupon> customerCoupons = customer.getCoupons();
+            List<Coupon> coupons = couponRepo.findAll();
+            List<Customer> customers = customerRepo.findAll();
 
-                    // remove elements from the coupons list if they have the id of the expired coupon
-                    // https://www.techiedelight.com/remove-all-occurrences-element-from-list-java/
-                    customerCoupons.removeIf(coup -> coup.getIdPokopon() == coupon.getIdPokopon());
+            for (Coupon coupon: coupons) {
+                if (coupon.getEndDate().before(currDate)){
+                    for (Customer customer : customers) {
+                        List<Coupon> customerCoupons = customer.getCoupons();
 
-                    // update customer after deleting his expired coupons from the list
-                    customerRepo.save(customer);
+                        // remove elements from the coupons list if they have the id of the expired coupon
+                        // https://www.techiedelight.com/remove-all-occurrences-element-from-list-java/
+                        customerCoupons.removeIf(coup -> coup.getIdPokopon() == coupon.getIdPokopon());
+
+                        // update customer after deleting his expired coupons from the list
+                        customerRepo.save(customer);
+                    }
+
+                    // remove coupon purchase history
+                    couponRepo.deleteCouponPurchaseByCouponId(coupon.getIdPokopon());
+                    // remove the coupon
+                    couponRepo.deleteById(coupon.getIdPokopon());
+                    System.out.println("deleted coupon with id: " + coupon.getIdPokopon());
                 }
 
-                // remove coupon purchase history
-                couponRepo.deleteCouponPurchaseByCouponId(coupon.getIdPokopon());
-                // remove the coupon
-                couponRepo.deleteById(coupon.getIdPokopon());
-                System.out.println("deleted coupon with id: " + coupon.getIdPokopon());
+            }
+
+            //    @Scheduled(fixedRate = 24 * 60 * 60 * 1000, initialDelay = 20 * 1000)
+            try { Thread.sleep(24 * 60 * 60 * 1000);
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
             }
 
         }
-    }
 
+    }
 }
