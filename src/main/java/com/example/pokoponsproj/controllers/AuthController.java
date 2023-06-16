@@ -9,7 +9,6 @@ import com.example.pokoponsproj.beans.Seller;
 import com.example.pokoponsproj.services.auth.Credentials;
 import com.example.pokoponsproj.services.auth.LoginManager.LoginManager;
 import com.example.pokoponsproj.services.auth.Session;
-import com.example.pokoponsproj.services.facades.AdminFacade;
 import com.example.pokoponsproj.services.facades.ClientFacade;
 import com.example.pokoponsproj.services.facades.CustomerFacade;
 import com.example.pokoponsproj.services.facades.SellerFacade;
@@ -41,11 +40,13 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody Credentials cred) {
         try {
+            System.out.println("loginattempt");
+//            System.out.println(cred.getEmail() + cred.getPassword() + cred.getClientType());
             ClientFacade clientFacade = loginManager.login(cred.getEmail(), cred.getPassword(), cred.getClientType());
 
             String token = "";
             switch (cred.getClientType()) {
-                case administrator:
+                case admin:
                     token = getJWTToken(new Admin());
                     break;
                 case seller:

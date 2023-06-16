@@ -5,12 +5,12 @@ import com.example.pokoponsproj.enums.ClientType;
 public class Credentials {
     private String email;
     private String password;
-    private ClientType clientType;
+    private ClientType type;
 
-    public Credentials(String username, String password, ClientType clientType) {
+    public Credentials(ClientType clientType, String username, String password) {
         this.email = username;
         this.password = password;
-        this.clientType = clientType;
+        this.type = clientType;
     }
 
     public String getEmail() {
@@ -34,12 +34,12 @@ public class Credentials {
     }
 
     public ClientType getClientType() {
-        return clientType;
+        return type;
     }
 
     public void setClientType(ClientType clientType) {
 
-        this.clientType = clientType;
+        this.type = clientType;
     }
 }
 

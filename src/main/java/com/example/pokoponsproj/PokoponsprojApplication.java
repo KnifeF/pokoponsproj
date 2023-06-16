@@ -29,8 +29,8 @@ public class PokoponsprojApplication {
 
 		Thread sessionExpirationJob = new Thread(ctx.getBean(SessionExpirationJob.class));
 		sessionExpirationJob.start();
-		Thread couponExpirationJob = new Thread((Runnable) ctx.getBean(CouponExpirationDailyJob.class));
-		couponExpirationJob.start();
+//		Thread couponExpirationJob = new Thread(ctx.getBean(CouponExpirationDailyJob.class));
+//		couponExpirationJob.start();
 
 	}
 

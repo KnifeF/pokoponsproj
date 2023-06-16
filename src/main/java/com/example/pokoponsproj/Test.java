@@ -31,7 +31,7 @@ public class Test {
         try {
             // login with administrator and call the admin methods (business logic)
             // ********************************************************************
-            AdminFacade adminFacade = (AdminFacade) loginManager.login("admin@admin.com", "admin", ClientType.administrator);
+            AdminFacade adminFacade = (AdminFacade) loginManager.login("admin@admin.com", "admin", ClientType.admin);
 
             // admin methods on customers
             // adding a customer

@@ -4,5 +4,5 @@ public enum ClientType {
     /**
      * Enum that represent client types (optional roles in the system)
      */
-    administrator,seller,customer
+    admin,seller,customer
 }

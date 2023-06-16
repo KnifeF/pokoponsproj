@@ -24,7 +24,7 @@ public class LoginManager {
 
     public ClientFacade login(String email, String password, ClientType clientType) throws RuntimeException, SQLException {
 
-        if (clientType == ClientType.administrator) {
+        if (clientType == ClientType.admin) {
             AdminFacade adminFacade = ctx.getBean(AdminFacade.class);
             if (adminFacade.login(email, password) != -1) {
                 System.out.println("Logged in to administrator");
